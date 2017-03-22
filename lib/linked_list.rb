@@ -74,7 +74,6 @@ class LinkedList
     index.times do
       current = current.next_node
     end
-    #binding.pry
     n.times do
       count_string += current.data + " "
       if current.next_node != nil
@@ -82,6 +81,22 @@ class LinkedList
       end
     end
     count_string
+  end
+
+  def includes?(name)
+    current = @head
+    if current.data == name
+      true
+    else
+    until current.next_node == nil
+      if current.data == name
+        true
+      else
+        current = current.next_node
+      end
+      false
+    end
+    end
   end
 
 end

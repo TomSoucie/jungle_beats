@@ -123,4 +123,7 @@ class LinkListTest < Minitest::Test
 
     assert list.includes?("beep")
     refute list.includes?("deep")
+  end
+
+  def test_the_list_will_pop_the_last_beat
 end
