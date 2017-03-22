@@ -19,7 +19,7 @@ class LinkListTest < Minitest::Test
     assert_equal nil, list.head.next_node
   end
 
-  def test_the_list_can_return_a_count_of_nodes
+  def test_the_list_can_count_a_node
     list = LinkedList.new
 
     list.append("doop")
@@ -45,5 +45,13 @@ class LinkListTest < Minitest::Test
     assert_equal "beep", list.head.next_node.data
 
     assert_equal nil, list.head.next_node.next_node
+  end
+  
+  def test_the_list_can_count_multiple_nodes
+    skip
+  end
+
+  def test_the_list_can_return_data_from_multiple_nodes
+    skip
   end
 end
