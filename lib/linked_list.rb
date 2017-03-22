@@ -50,12 +50,7 @@ class LinkedList
   end
 
   def prepend(name)
-    current = @head
-    new_node = Node.new(name)
-    if current.next_node != nil
-      new_node.next_node = current.next_node
-    end
-    current.next_node = new_node
+    @head = Node.new(name, next_node=@head)
   end
 
   def insert(index, name)
