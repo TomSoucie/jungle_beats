@@ -27,7 +27,7 @@ class LinkListTest < Minitest::Test
     assert_equal 1, list.count
   end
 
-  def test_the_list_will_return_a_string_of_beats
+  def test_the_list_will_return_a_beat
     list = LinkedList.new
 
     list.append("doop")
@@ -76,8 +76,23 @@ class LinkListTest < Minitest::Test
     assert_equal "plop", list.to_string
 
     list.append("suu")
+    assert_equal "plop suu", list.to_string
+
     list.prepend("dop")
     assert_equal "dop plop suu", list.to_string
+   end
+
+   def test_the_list_can_insert_at_a_given_index
+    list = LinkedList.new
+
+    list.append("plop")
+    list.append("suu")
+    list.append("dop")
+    assert_equal 3, list.count
+    assert_equal "plop suu dop", list.to_string
+
+    list.insert(1, "woo")
+    assert_equal "plop woo suu dop", list.to_string
    end 
 
 end
