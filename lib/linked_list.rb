@@ -1,4 +1,5 @@
 require './lib/node/'
+require 'pry'
 
 class LinkedList
   attr_reader   :head
@@ -65,6 +66,22 @@ class LinkedList
       new_node.next_node = current.next_node
     end
     current.next_node = new_node
+  end
+
+  def find(index, n)
+    current = @head
+    count_string = ""
+    index.times do
+      current = current.next_node
+    end
+    #binding.pry
+    n.times do
+      count_string += current.data + " "
+      if current.next_node != nil
+        current = current.next_node
+      end
+    end
+    count_string
   end
 
 end

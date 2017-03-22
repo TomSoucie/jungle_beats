@@ -50,49 +50,63 @@ class LinkListTest < Minitest::Test
   def test_the_list_can_count_multiple_beats
     list = LinkedList.new
 
-    list.append("doop dop")
+    list.append("boop bop")
     assert_equal 2, list.count
 
-    list.append("boo")
-    list.append("deee")
+    list.append("bop")
+    list.append("dee")
     assert_equal 4, list.count
   end
 
   def test_the_list_can_return_a_string_of_beats
     list = LinkedList.new
 
-    list.append("doop dop")
-    assert_equal "doop dop", list.to_string
+    list.append("boop bop")
+    assert_equal "boop bop", list.to_string
 
-    list.append("boo")
-    list.append("deee")
-    assert_equal "doop dop boo deee", list.to_string
+    list.append("boop")
+    list.append("dee")
+    assert_equal "boop bop boop dee", list.to_string
   end
 
   def test_the_list_will_prepend
     list = LinkedList.new
 
-    list.append("plop")
-    assert_equal "plop", list.to_string
+    list.append("la")
+    assert_equal "la", list.to_string
 
-    list.append("suu")
-    assert_equal "plop suu", list.to_string
+    list.append("bop")
+    assert_equal "la bop", list.to_string
 
-    list.prepend("dop")
-    assert_equal "dop plop suu", list.to_string
-   end
+    list.prepend("bop")
+    assert_equal "bop la bop", list.to_string
+  end
 
-   def test_the_list_can_insert_at_a_given_index
+  def test_the_list_can_insert_at_a_given_index
     list = LinkedList.new
 
     list.append("plop")
-    list.append("suu")
-    list.append("dop")
+    list.append("la")
+    list.append("bop")
     assert_equal 3, list.count
-    assert_equal "plop suu dop", list.to_string
+    assert_equal "plop la bop", list.to_string
 
     list.insert(1, "woo")
-    assert_equal "plop woo suu dop", list.to_string
-   end 
+    assert_equal "plop woo la bop", list.to_string
+  end
 
+  def test_the_list_can_find_beats_and_return_specified_quantity
+    list = LinkedList.new
+
+    list.append("beep")
+    list.append("bop")
+    list.append("boo")
+    list.append("la")
+    list.append("la")
+    assert_equal 5, list.count
+    assert_equal "beep bop boo la la", list.to_string
+
+    assert_equal "bop boo ", list.find(1, 2)
+    assert_equal "la ", list.find(3, 1)
+  end
 end
