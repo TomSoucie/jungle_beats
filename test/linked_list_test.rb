@@ -15,6 +15,7 @@ class LinkListTest < Minitest::Test
 
     list.append("doop")
     
+    assert_equal "doop", list.head.data
     assert_equal nil, list.head.next_node
   end
 
@@ -32,5 +33,17 @@ class LinkListTest < Minitest::Test
     list.append("doop")
 
     assert_equal "doop", list.to_string
+  end
+
+  def test_the_list_can_append_multiple_items
+    list = LinkedList.new
+
+    list.append("doop")
+    assert_equal "doop", list.head.data
+
+    list.append("beep")
+    assert_equal "beep", list.head.next_node.data
+
+    assert_equal nil, list.head.next_node.next_node
   end
 end
