@@ -109,4 +109,18 @@ class LinkListTest < Minitest::Test
     assert_equal "bop boo ", list.find(1, 2)
     assert_equal "la ", list.find(3, 1)
   end
+
+  def test_the_list_can_check_if_includes_some_beat
+    list = LinkedList.new
+
+    list.append("beep")
+    list.append("bop")
+    list.append("boo")
+    list.append("la")
+    list.append("la")
+    assert_equal 5, list.count
+    assert_equal "beep bop boo la la", list.to_string
+
+    assert list.includes?("beep")
+    refute list.includes?("deep")
 end
