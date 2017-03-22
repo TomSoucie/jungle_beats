@@ -126,4 +126,16 @@ class LinkListTest < Minitest::Test
   end
 
   def test_the_list_will_pop_the_last_beat
+    list = LinkedList.new
+
+    list.append("beep")
+    list.append("bop")
+    list.append("boo")
+    assert_equal 3, list.count
+    assert_equal "beep bop boo", list.to_string
+
+    assert_equal "boo", list.pop 
+    assert_equal 2, list.count
+    assert_equal "beep bop", list.to_string
+  end
 end
