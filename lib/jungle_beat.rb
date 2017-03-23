@@ -23,7 +23,7 @@ class JungleBeat
   def play
     beats = @list.to_string
     
-    system "say", beats
+    system ("say -r 500 -v Boing '#{beats}'")
   end
 
 end
