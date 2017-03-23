@@ -20,4 +20,8 @@ class JungleBeat
     @list.count
   end
 
+  def play
+
+  end
+
 end

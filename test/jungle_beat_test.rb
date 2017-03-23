@@ -33,8 +33,19 @@ class JungleBeatTest < Minitest::Test
     assert_equal "beep", jb.list.head.data
     assert_equal "boo", jb.list.head.next_node.data
     assert_equal "la", jb.list.head.next_node.next_node.data
-    
+
     jb.append("dee beep boo")
     assert_equal 6, jb.count
+  end
+
+  def test_jungle_beat_will_play_some_beats
+    jb = JungleBeat.new 
+
+    jb.append("tee dee bop boop la na")
+    assert_equal 6, jb.count
+    assert_equal 6, jb.list.count
+
+    jb.play
+    #verify audible output through headphones or speakers
   end
 end
