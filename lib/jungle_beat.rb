@@ -21,7 +21,9 @@ class JungleBeat
   end
 
   def play
-
+    beats = @list.to_string
+    
+    system "say", beats
   end
 
 end
