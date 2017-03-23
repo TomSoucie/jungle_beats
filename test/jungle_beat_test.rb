@@ -17,15 +17,23 @@ class JungleBeatTest < Minitest::Test
     assert_equal nil, jb.list.head
   end
 
-  def test_jungle_beat_can_append_a_string_to_differnt_nodes
-    skip
+  def test_jungle_beat_can_append_a_string_to_different_nodes
     jb = JungleBeat.new
     
     jb.append("beep boo la")
     assert_equal "beep", jb.list.head.data
-    assert_equal "boo", jb.list.next_node.data
-    assert_equal "la", jb.list.next_node.next_node.data
+    assert_equal "boo", jb.list.head.next_node.data
+    assert_equal "la", jb.list.head.next_node.next_node.data
+  end
 
+  def test_jungle_beat_can_count_beats
+    jb = JungleBeat.new
+    
+    jb.append("beep boo la")
+    assert_equal "beep", jb.list.head.data
+    assert_equal "boo", jb.list.head.next_node.data
+    assert_equal "la", jb.list.head.next_node.next_node.data
+    
     jb.append("dee beep boo")
     assert_equal 6, jb.count
   end
